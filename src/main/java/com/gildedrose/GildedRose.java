@@ -5,6 +5,7 @@ class GildedRose {
     static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     static final String AGED_BRIE = "Aged Brie";
     static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
+    static final String CONJURED = "Conjured";
 
     private static final int HIGHEST_QUALITY_VALUE = 50;
     private static final int ELEVEN_DAYS = 11;
@@ -32,6 +33,10 @@ class GildedRose {
             case AGED_BRIE:
                 increaseQuality(item);
                 break;
+            case CONJURED:
+                decreaseQuality(item);
+                decreaseQuality(item);
+                break;
             case BACKSTAGE:
                 increaseQuality(item);
                 if (item.quality < HIGHEST_QUALITY_VALUE) {
@@ -54,6 +59,10 @@ class GildedRose {
             switch (item.name) {
                 case AGED_BRIE:
                     increaseQuality(item);
+                    break;
+                case CONJURED:
+                    decreaseQuality(item);
+                    decreaseQuality(item);
                     break;
                 case BACKSTAGE:
                     item.quality = 0;

@@ -166,5 +166,32 @@ class GildedRoseTest {
         assertEquals(0, app.items[0].quality);
     }
 
+    @Test
+    @DisplayName("quality should decrease by 2 for conjured items, when sell by date is not passed")
+    void testQualityOfConjuredItemsDecreases() {
+        // given
+        Item[] items = new Item[]{new Item("Conjured", 10, 12)};
+        GildedRose app = new GildedRose(items);
+
+        // when
+        app.updateQuality();
+
+        // then
+        assertEquals(10, app.items[0].quality);
+    }
+
+    @Test
+    @DisplayName("quality should decrease faster by 4 for conjured items, when sell by date is passed")
+    void testQualityOfConjuredItemsDecreasesFasterAfterSellByDate() {
+        // given
+        Item[] items = new Item[]{new Item("Conjured", 0, 12)};
+        GildedRose app = new GildedRose(items);
+
+        // when
+        app.updateQuality();
+
+        // then
+        assertEquals(8, app.items[0].quality);
+    }
 
 }
