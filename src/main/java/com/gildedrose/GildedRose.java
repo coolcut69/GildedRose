@@ -6,6 +6,10 @@ class GildedRose {
     static final String AGED_BRIE = "Aged Brie";
     static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
 
+    private static final int HIGHEST_QUALITY_VALUE = 50;
+    private static final int ELEVEN_DAYS = 11;
+    private static final int SIX_DAYS = 6;
+
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -22,18 +26,18 @@ class GildedRose {
                     }
                 }
             } else {
-                if (item.quality < 50) {
+                if (item.quality < HIGHEST_QUALITY_VALUE) {
                     item.quality = item.quality + 1;
 
                     if (item.name.equals(BACKSTAGE)) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
+                        if (item.sellIn < ELEVEN_DAYS) {
+                            if (item.quality < HIGHEST_QUALITY_VALUE) {
                                 item.quality = item.quality + 1;
                             }
                         }
 
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
+                        if (item.sellIn < SIX_DAYS) {
+                            if (item.quality < HIGHEST_QUALITY_VALUE) {
                                 item.quality = item.quality + 1;
                             }
                         }
@@ -57,7 +61,7 @@ class GildedRose {
                         item.quality = 0;
                     }
                 } else {
-                    if (item.quality < 50) {
+                    if (item.quality < HIGHEST_QUALITY_VALUE) {
                         item.quality = item.quality + 1;
                     }
                 }
