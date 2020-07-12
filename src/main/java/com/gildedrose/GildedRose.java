@@ -21,26 +21,21 @@ class GildedRose {
             if (item.name.equals(SULFURAS)) {
                 continue;
             }
+
             if (!item.name.equals(AGED_BRIE)
                     && !item.name.equals(BACKSTAGE)) {
-                if (item.quality > 0) {
-                    item.quality = item.quality - 1;
-                }
+                decreaseQuality(item);
             } else {
                 if (item.quality < HIGHEST_QUALITY_VALUE) {
                     item.quality = item.quality + 1;
 
                     if (item.name.equals(BACKSTAGE)) {
                         if (item.sellIn < ELEVEN_DAYS) {
-                            if (item.quality < HIGHEST_QUALITY_VALUE) {
-                                item.quality = item.quality + 1;
-                            }
+                            increaseQuality(item);
                         }
 
                         if (item.sellIn < SIX_DAYS) {
-                            if (item.quality < HIGHEST_QUALITY_VALUE) {
-                                item.quality = item.quality + 1;
-                            }
+                            increaseQuality(item);
                         }
                     }
                 }
@@ -51,18 +46,26 @@ class GildedRose {
             if (item.sellIn < 0) {
                 if (!item.name.equals(AGED_BRIE)) {
                     if (!item.name.equals(BACKSTAGE)) {
-                        if (item.quality > 0) {
-                            item.quality = item.quality - 1;
-                        }
+                        decreaseQuality(item);
                     } else {
                         item.quality = 0;
                     }
                 } else {
-                    if (item.quality < HIGHEST_QUALITY_VALUE) {
-                        item.quality = item.quality + 1;
-                    }
+                    increaseQuality(item);
                 }
             }
+        }
+    }
+
+    private void decreaseQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }
+
+    private void increaseQuality(Item item) {
+        if (item.quality < HIGHEST_QUALITY_VALUE) {
+            item.quality = item.quality + 1;
         }
     }
 }
