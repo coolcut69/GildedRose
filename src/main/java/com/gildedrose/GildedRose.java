@@ -21,37 +21,42 @@ class GildedRose {
             if (SULFURAS.equals(item.name)) {
                 continue;
             }
+            updateQuality(item);
+            item.sellIn = item.sellIn - 1;
+            processExpiredItems(item);
+        }
+    }
 
-            if (AGED_BRIE.equals(item.name)
-                    || BACKSTAGE.equals(item.name)) {
-                if (item.quality < HIGHEST_QUALITY_VALUE) {
-                    item.quality = item.quality + 1;
+    private void updateQuality(Item item) {
+        if (AGED_BRIE.equals(item.name)
+                || BACKSTAGE.equals(item.name)) {
+            if (item.quality < HIGHEST_QUALITY_VALUE) {
+                item.quality = item.quality + 1;
 
-                    if (BACKSTAGE.equals(item.name)) {
-                        if (item.sellIn < ELEVEN_DAYS) {
-                            increaseQuality(item);
-                        }
+                if (BACKSTAGE.equals(item.name)) {
+                    if (item.sellIn < ELEVEN_DAYS) {
+                        increaseQuality(item);
+                    }
 
-                        if (item.sellIn < SIX_DAYS) {
-                            increaseQuality(item);
-                        }
+                    if (item.sellIn < SIX_DAYS) {
+                        increaseQuality(item);
                     }
                 }
-            } else {
-                decreaseQuality(item);
             }
+        } else {
+            decreaseQuality(item);
+        }
+    }
 
-            item.sellIn = item.sellIn - 1;
-
-            if (item.sellIn < 0) {
-                if (AGED_BRIE.equals(item.name)) {
-                    increaseQuality(item);
+    private void processExpiredItems(Item item) {
+        if (item.sellIn < 0) {
+            if (AGED_BRIE.equals(item.name)) {
+                increaseQuality(item);
+            } else {
+                if (BACKSTAGE.equals(item.name)) {
+                    item.quality = 0;
                 } else {
-                    if (BACKSTAGE.equals(item.name)) {
-                        item.quality = 0;
-                    } else {
-                        decreaseQuality(item);
-                    }
+                    decreaseQuality(item);
                 }
             }
         }
