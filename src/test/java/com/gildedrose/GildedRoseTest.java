@@ -12,6 +12,20 @@ import org.junit.jupiter.api.Test;
 class GildedRoseTest {
 
     @Test
+    @DisplayName("quality should decrease when sell by date is not passed")
+    void testQualityDecreases() {
+        // given
+        Item[] items = new Item[]{new Item("normal", 10, 12)};
+        GildedRose app = new GildedRose(items);
+
+        // when
+        app.updateQuality();
+
+        // then
+        assertEquals(11, app.items[0].quality);
+    }
+
+    @Test
     @DisplayName("quality should decrease faster when sell by date is passed")
     void testQualityDecreasesFasterAfterSellByDate() {
         // given
@@ -151,5 +165,6 @@ class GildedRoseTest {
         // then
         assertEquals(0, app.items[0].quality);
     }
+
 
 }
