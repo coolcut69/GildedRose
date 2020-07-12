@@ -29,7 +29,7 @@ class GildedRoseTest {
     @DisplayName("quality should be never negative")
     void testQualityIsNeverNegative() {
         // given
-        Item[] items = new Item[]{new Item("normal", 1, 1)};
+        Item[] items = new Item[]{new Item("normal", 1, 0)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -151,4 +151,5 @@ class GildedRoseTest {
         // then
         assertEquals(0, app.items[0].quality);
     }
+
 }
