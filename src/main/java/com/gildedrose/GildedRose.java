@@ -29,13 +29,10 @@ class GildedRose {
 
     private void updateQuality(Item item) {
         if (AGED_BRIE.equals(item.name)) {
-            if (item.quality < HIGHEST_QUALITY_VALUE) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality(item);
         } else if (BACKSTAGE.equals(item.name)) {
+            increaseQuality(item);
             if (item.quality < HIGHEST_QUALITY_VALUE) {
-                item.quality = item.quality + 1;
-
                 if (item.sellIn < ELEVEN_DAYS) {
                     increaseQuality(item);
                 }
@@ -47,7 +44,6 @@ class GildedRose {
         } else {
             decreaseQuality(item);
         }
-
     }
 
     private void processExpiredItems(Item item) {
