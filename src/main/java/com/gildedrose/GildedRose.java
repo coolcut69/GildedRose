@@ -11,6 +11,9 @@ class GildedRose {
     private static final int ELEVEN_DAYS = 11;
     private static final int SIX_DAYS = 6;
 
+    private static final int NORMAL_DEGRADE_FACTOR = 1;
+    private static final int DOUBLE_DEGRADE_FACTOR = 2;
+
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -34,8 +37,7 @@ class GildedRose {
                 increaseQuality(item);
                 break;
             case CONJURED:
-                decreaseQuality(item);
-                decreaseQuality(item);
+                decreaseQuality(item, DOUBLE_DEGRADE_FACTOR);
                 break;
             case BACKSTAGE:
                 increaseQuality(item);
@@ -61,8 +63,7 @@ class GildedRose {
                     increaseQuality(item);
                     break;
                 case CONJURED:
-                    decreaseQuality(item);
-                    decreaseQuality(item);
+                    decreaseQuality(item, DOUBLE_DEGRADE_FACTOR);
                     break;
                 case BACKSTAGE:
                     item.quality = 0;
@@ -75,8 +76,14 @@ class GildedRose {
     }
 
     private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
+        decreaseQuality(item, NORMAL_DEGRADE_FACTOR);
+    }
+
+    private void decreaseQuality(Item item, int factor) {
+        for (int i = 0; i < factor; i++) {
+            if (item.quality > 0) {
+                item.quality = item.quality - 1;
+            }
         }
     }
 
