@@ -28,32 +28,39 @@ class GildedRose {
     }
 
     private void updateQuality(Item item) {
-        if (AGED_BRIE.equals(item.name)) {
-            increaseQuality(item);
-        } else if (BACKSTAGE.equals(item.name)) {
-            increaseQuality(item);
-            if (item.quality < HIGHEST_QUALITY_VALUE) {
-                if (item.sellIn < ELEVEN_DAYS) {
-                    increaseQuality(item);
+        switch (item.name) {
+            case AGED_BRIE:
+                increaseQuality(item);
+                break;
+            case BACKSTAGE:
+                increaseQuality(item);
+                if (item.quality < HIGHEST_QUALITY_VALUE) {
+                    if (item.sellIn < ELEVEN_DAYS) {
+                        increaseQuality(item);
+                    }
+                    if (item.sellIn < SIX_DAYS) {
+                        increaseQuality(item);
+                    }
                 }
-
-                if (item.sellIn < SIX_DAYS) {
-                    increaseQuality(item);
-                }
-            }
-        } else {
-            decreaseQuality(item);
+                break;
+            default:
+                decreaseQuality(item);
+                break;
         }
     }
 
     private void processExpiredItems(Item item) {
         if (item.sellIn < 0) {
-            if (AGED_BRIE.equals(item.name)) {
-                increaseQuality(item);
-            } else if (BACKSTAGE.equals(item.name)) {
-                item.quality = 0;
-            } else {
-                decreaseQuality(item);
+            switch (item.name) {
+                case AGED_BRIE:
+                    increaseQuality(item);
+                    break;
+                case BACKSTAGE:
+                    item.quality = 0;
+                    break;
+                default:
+                    decreaseQuality(item);
+                    break;
             }
         }
     }
