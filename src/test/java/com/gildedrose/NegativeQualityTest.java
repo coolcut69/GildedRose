@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE;
-import static com.gildedrose.GildedRose.CONJURED;
+import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE;
+import static com.gildedrose.ItemType.CONJURED;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.stream.Stream;
@@ -30,13 +30,13 @@ class NegativeQualityTest {
 
     private static Stream<Arguments> provideItemsForNegativeCheck() {
         return Stream.of(
-                Arguments.of(new Item(CONJURED, 1, 1)),
-                Arguments.of(new Item(AGED_BRIE, 1, 1)),
-                Arguments.of(new Item(BACKSTAGE, 1, 1)),
+                Arguments.of(new Item(CONJURED.getLabel(), 1, 1)),
+                Arguments.of(new Item(AGED_BRIE.getLabel(), 1, 1)),
+                Arguments.of(new Item(BACKSTAGE.getLabel(), 1, 1)),
                 Arguments.of(new Item("normal", 1, 1)),
-                Arguments.of(new Item(CONJURED, 0, 1)),
-                Arguments.of(new Item(AGED_BRIE, 0, 1)),
-                Arguments.of(new Item(BACKSTAGE, 0, 1)),
+                Arguments.of(new Item(CONJURED.getLabel(), 0, 1)),
+                Arguments.of(new Item(AGED_BRIE.getLabel(), 0, 1)),
+                Arguments.of(new Item(BACKSTAGE.getLabel(), 0, 1)),
                 Arguments.of(new Item("normal", 0, 1))
         );
     }

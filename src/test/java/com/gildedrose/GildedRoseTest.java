@@ -1,8 +1,9 @@
 package com.gildedrose;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE;
-import static com.gildedrose.GildedRose.SULFURAS;
+import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE;
+import static com.gildedrose.ItemType.CONJURED;
+import static com.gildedrose.ItemType.SULFURAS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -57,7 +58,7 @@ class GildedRoseTest {
     @DisplayName("quality of Aged Brie should increase")
     void testQualityForBrieShouldIncrease() {
         // given
-        Item[] items = new Item[]{new Item(AGED_BRIE, 10, 10)};
+        Item[] items = new Item[]{new Item(AGED_BRIE.getLabel(), 10, 10)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -71,7 +72,7 @@ class GildedRoseTest {
     @DisplayName("quality should increase faster when sell by date is passed for Aged Brie")
     void testQualityIncreasesFasterAfterSellByDateForBrie() {
         // given
-        Item[] items = new Item[]{new Item(AGED_BRIE, -1, 12)};
+        Item[] items = new Item[]{new Item(AGED_BRIE.getLabel(), -1, 12)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -86,7 +87,7 @@ class GildedRoseTest {
     @DisplayName("quality should be never be greater then 50")
     void testQualityShouldNeverBeGreaterThen50() {
         // given
-        Item[] items = new Item[]{new Item(AGED_BRIE, 10, 50)};
+        Item[] items = new Item[]{new Item(AGED_BRIE.getLabel(), 10, 50)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -100,7 +101,7 @@ class GildedRoseTest {
     @DisplayName("quality of Sulfuras should never change, it has a fixed value of 80")
     void testQualityOfSulfuras() {
         // given
-        Item[] items = new Item[]{new Item(SULFURAS, 10, 80)};
+        Item[] items = new Item[]{new Item(SULFURAS.getLabel(), 10, 80)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -114,7 +115,7 @@ class GildedRoseTest {
     @DisplayName("quality of Backstage should increase by 1 when sell by date is greater then 10")
     void testQualityShouldIncreaseBy1ForBackstage() {
         // given
-        Item[] items = new Item[]{new Item(BACKSTAGE, 11, 10)};
+        Item[] items = new Item[]{new Item(BACKSTAGE.getLabel(), 11, 10)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -128,7 +129,7 @@ class GildedRoseTest {
     @DisplayName("quality of Backstage should increase by 2 when sell by date is between 10 and 5")
     void testQualityShouldIncreaseBy2ForBackstage() {
         // given
-        Item[] items = new Item[]{new Item(BACKSTAGE, 9, 10)};
+        Item[] items = new Item[]{new Item(BACKSTAGE.getLabel(), 9, 10)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -142,7 +143,7 @@ class GildedRoseTest {
     @DisplayName("quality of Backstage should increase by 3 when sell by date is between 5 and 0")
     void testQualityShouldIncreaseBy3ForBackstage() {
         // given
-        Item[] items = new Item[]{new Item(BACKSTAGE, 3, 10)};
+        Item[] items = new Item[]{new Item(BACKSTAGE.getLabel(), 3, 10)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -156,7 +157,7 @@ class GildedRoseTest {
     @DisplayName("quality of Backstage should be 0 when concert is over")
     void testQualityShould0ForBackstageAfterConcert() {
         // given
-        Item[] items = new Item[]{new Item(BACKSTAGE, 0, 10)};
+        Item[] items = new Item[]{new Item(BACKSTAGE.getLabel(), 0, 10)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -170,7 +171,7 @@ class GildedRoseTest {
     @DisplayName("quality should decrease by 2 for conjured items, when sell by date is not passed")
     void testQualityOfConjuredItemsDecreases() {
         // given
-        Item[] items = new Item[]{new Item("Conjured", 10, 12)};
+        Item[] items = new Item[]{new Item(CONJURED.getLabel() + " item", 10, 12)};
         GildedRose app = new GildedRose(items);
 
         // when
@@ -184,7 +185,7 @@ class GildedRoseTest {
     @DisplayName("quality should decrease faster by 4 for conjured items, when sell by date is passed")
     void testQualityOfConjuredItemsDecreasesFasterAfterSellByDate() {
         // given
-        Item[] items = new Item[]{new Item("Conjured", 0, 12)};
+        Item[] items = new Item[]{new Item(CONJURED.getLabel(), 0, 12)};
         GildedRose app = new GildedRose(items);
 
         // when

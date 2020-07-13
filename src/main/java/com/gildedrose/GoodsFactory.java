@@ -1,9 +1,10 @@
 package com.gildedrose;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE;
-import static com.gildedrose.GildedRose.CONJURED;
-import static com.gildedrose.GildedRose.SULFURAS;
+
+import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE;
+import static com.gildedrose.ItemType.CONJURED;
+import static com.gildedrose.ItemType.SULFURAS;
 
 public class GoodsFactory {
 
@@ -14,13 +15,13 @@ public class GoodsFactory {
     public static Good createInstance(Item item) {
         Good result;
 
-        if (item.name.equals(AGED_BRIE)) {
+        if (item.name.equals(AGED_BRIE.getLabel())) {
             result = new BrieItem(item);
-        } else if (SULFURAS.equals(item.name)) {
+        } else if (SULFURAS.getLabel().equals(item.name)) {
             result = new SulfurasItem(item);
-        } else if (BACKSTAGE.equals(item.name)) {
+        } else if (BACKSTAGE.getLabel().equals(item.name)) {
             result = new BackStageItem(item);
-        } else if ((item.name.startsWith(CONJURED))) {
+        } else if ((item.name.startsWith(CONJURED.getLabel()))) {
             result = new ConjuredItem(item);
         } else {
             result = new DefaultItem(item);
