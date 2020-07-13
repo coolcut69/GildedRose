@@ -5,8 +5,8 @@ public class BackStageItem extends AbstractGood implements Good {
     private static final int ELEVEN_DAYS = 11;
     private static final int SIX_DAYS = 6;
 
-    public BackStageItem(Item item) {
-        this.item = item;
+    protected BackStageItem(Item item) {
+        super(item);
     }
 
     @Override

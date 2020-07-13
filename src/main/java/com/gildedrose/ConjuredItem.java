@@ -2,8 +2,8 @@ package com.gildedrose;
 
 public class ConjuredItem extends AbstractGood implements Good {
 
-    public ConjuredItem(Item item) {
-        this.item = item;
+    protected ConjuredItem(Item item) {
+        super(item);
     }
 
     @Override

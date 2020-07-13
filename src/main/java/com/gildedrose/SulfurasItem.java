@@ -2,9 +2,9 @@ package com.gildedrose;
 
 public class SulfurasItem extends AbstractGood implements Good {
 
-    public SulfurasItem(Item item) {
+    protected SulfurasItem(Item item) {
+        super(item);
         item.quality = 80;
-        this.item = item;
     }
 
     @Override

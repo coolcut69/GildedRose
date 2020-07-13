@@ -2,8 +2,8 @@ package com.gildedrose;
 
 public class DefaultItem extends AbstractGood implements Good {
 
-    public DefaultItem(Item item) {
-        this.item = item;
+    protected DefaultItem(Item item) {
+        super(item);
     }
 
     @Override

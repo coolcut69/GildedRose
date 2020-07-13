@@ -2,8 +2,8 @@ package com.gildedrose;
 
 public class BrieItem extends AbstractGood implements Good {
 
-    public BrieItem(Item item) {
-        this.item = item;
+    protected BrieItem(Item item) {
+        super(item);
     }
 
     @Override

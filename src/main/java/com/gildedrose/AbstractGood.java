@@ -8,6 +8,10 @@ public abstract class AbstractGood implements Good {
 
     protected Item item;
 
+    protected AbstractGood(Item item) {
+        this.item = item;
+    }
+
     @Override
     public void processItem() {
         this.updateQuality();
