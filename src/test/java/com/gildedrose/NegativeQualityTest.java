@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemType.AGED_BRIE;
-import static com.gildedrose.ItemType.BACKSTAGE;
-import static com.gildedrose.ItemType.CONJURED;
+import static com.gildedrose.items.ItemType.AGED_BRIE;
+import static com.gildedrose.items.ItemType.BACKSTAGE;
+import static com.gildedrose.items.ItemType.CONJURED;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.stream.Stream;

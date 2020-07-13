@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class SulfurasItem extends AbstractGood implements Good {
+import com.gildedrose.Item;
+
+class SulfurasItem extends AbstractGood implements Good {
 
     protected SulfurasItem(Item item) {
         super(item);

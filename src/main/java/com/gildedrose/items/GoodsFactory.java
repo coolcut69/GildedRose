@@ -1,10 +1,12 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
 
-import static com.gildedrose.ItemType.AGED_BRIE;
-import static com.gildedrose.ItemType.BACKSTAGE;
-import static com.gildedrose.ItemType.CONJURED;
-import static com.gildedrose.ItemType.SULFURAS;
+import static com.gildedrose.items.ItemType.AGED_BRIE;
+import static com.gildedrose.items.ItemType.BACKSTAGE;
+import static com.gildedrose.items.ItemType.CONJURED;
+import static com.gildedrose.items.ItemType.SULFURAS;
+
+import com.gildedrose.Item;
 
 public class GoodsFactory {
 

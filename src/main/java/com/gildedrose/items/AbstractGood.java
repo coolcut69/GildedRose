@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public abstract class AbstractGood implements Good {
+import com.gildedrose.Item;
+
+abstract class AbstractGood implements Good {
 
     static final int HIGHEST_QUALITY_VALUE = 50;
     static final int NORMAL_DEGRADE_FACTOR = 1;

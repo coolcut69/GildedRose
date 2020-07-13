@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class BrieItem extends AbstractGood implements Good {
+import com.gildedrose.Item;
+
+class BrieItem extends AbstractGood implements Good {
 
     protected BrieItem(Item item) {
         super(item);

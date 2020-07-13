@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
 public enum ItemType {
     SULFURAS("Sulfuras, Hand of Ragnaros"),

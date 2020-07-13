@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class ConjuredItem extends AbstractGood implements Good {
+import com.gildedrose.Item;
+
+class ConjuredItem extends AbstractGood implements Good {
 
     protected ConjuredItem(Item item) {
         super(item);

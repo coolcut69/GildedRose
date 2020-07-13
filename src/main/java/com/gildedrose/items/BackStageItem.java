@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class BackStageItem extends AbstractGood implements Good {
+import com.gildedrose.Item;
+
+class BackStageItem extends AbstractGood implements Good {
 
     private static final int ELEVEN_DAYS = 11;
     private static final int SIX_DAYS = 6;

@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-public class DefaultItem extends AbstractGood implements Good {
+import com.gildedrose.Item;
+
+class DefaultItem extends AbstractGood implements Good {
 
     protected DefaultItem(Item item) {
         super(item);
