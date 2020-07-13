@@ -13,7 +13,7 @@ public class SulfurasItem extends AbstractGood implements Good {
     }
 
     @Override
-    public void checkExpiration() {
+    public void updateQualityAfterExpiration() {
         // do nothing
     }
 }

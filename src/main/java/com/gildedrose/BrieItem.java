@@ -12,7 +12,7 @@ public class BrieItem extends AbstractGood implements Good {
     }
 
     @Override
-    public void checkExpiration() {
+    public void updateQualityAfterExpiration() {
         increaseQuality(item);
     }
 }

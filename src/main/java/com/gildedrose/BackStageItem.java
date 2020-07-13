@@ -23,7 +23,7 @@ public class BackStageItem extends AbstractGood implements Good {
     }
 
     @Override
-    public void checkExpiration() {
+    public void updateQualityAfterExpiration() {
         item.quality = 0;
     }
 }

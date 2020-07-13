@@ -6,6 +6,6 @@ public interface Good {
 
     void updateQuality();
 
-    void checkExpiration();
+    void updateQualityAfterExpiration();
 
 }

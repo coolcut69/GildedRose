@@ -12,7 +12,7 @@ public class ConjuredItem extends AbstractGood implements Good {
     }
 
     @Override
-    public void checkExpiration() {
+    public void updateQualityAfterExpiration() {
         decreaseQuality(item, DOUBLE_DEGRADE_FACTOR);
     }
 }
