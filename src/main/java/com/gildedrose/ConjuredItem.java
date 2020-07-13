@@ -4,7 +4,6 @@ public class ConjuredItem extends AbstractGood implements Good {
 
     public ConjuredItem(Item item) {
         this.item = item;
-
     }
 
     @Override
@@ -14,8 +13,6 @@ public class ConjuredItem extends AbstractGood implements Good {
 
     @Override
     public void checkExpiration() {
-        if (item.sellIn < 0) {
-            decreaseQuality(item, DOUBLE_DEGRADE_FACTOR);
-        }
+        decreaseQuality(item, DOUBLE_DEGRADE_FACTOR);
     }
 }

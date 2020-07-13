@@ -13,8 +13,6 @@ public class DefaultItem extends AbstractGood implements Good {
 
     @Override
     public void checkExpiration() {
-        if (item.sellIn < 0) {
-            decreaseQuality(item);
-        }
+        decreaseQuality(item);
     }
 }

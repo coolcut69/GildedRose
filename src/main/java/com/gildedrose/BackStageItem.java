@@ -24,8 +24,6 @@ public class BackStageItem extends AbstractGood implements Good {
 
     @Override
     public void checkExpiration() {
-        if (item.sellIn < 0) {
-            item.quality = 0;
-        }
+        item.quality = 0;
     }
 }

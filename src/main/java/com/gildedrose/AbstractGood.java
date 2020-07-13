@@ -12,7 +12,13 @@ public abstract class AbstractGood implements Good {
     public void processItem() {
         this.updateQuality();
         item.sellIn = item.sellIn - 1;
-        this.checkExpiration();
+        if (isExpired()) {
+            this.checkExpiration();
+        }
+    }
+
+    private boolean isExpired() {
+        return item.sellIn < 0;
     }
 
     void increaseQuality(Item item) {
